@@ -300,15 +300,11 @@ if($index_check!='nologin') {
 </div>
 
 <div class="working">
-  <progress class="progress is-primary" value="90" max="100">15%</progress>
-  <p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci cumque, ipsum ducimus vitae ab illo facilis magni? Inventore, deleniti optio natus earum perferendis exercitationem, odit veniam labore quae consequuntur nam!
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum numquam quae ad repellat quasi officia ducimus mollitia beatae cupiditate fugiat ea quia, maxime rem porro! Cumque, soluta non? Architecto, minima!
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum numquam quae ad repellat quasi officia ducimus mollitia beatae cupiditate fugiat ea quia, maxime rem porro! Cumque, soluta non? Architecto, minima!
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum numquam quae ad repellat quasi officia ducimus mollitia beatae cupiditate fugiat ea quia, maxime rem porro! Cumque, soluta non? Architecto, minima!
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum numquam quae ad repellat quasi officia ducimus mollitia beatae cupiditate fugiat ea quia, maxime rem porro! Cumque, soluta non? Architecto, minima!
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum numquam quae ad repellat quasi officia ducimus mollitia beatae cupiditate fugiat ea quia, maxime rem porro! Cumque, soluta non? Architecto, minima!
-  </p>
+
+  <br>
+    <h1>โปรแกรม ยืมคืน ครุภัณฑ์ V1.0.0 สามารถใช้งานได้แล้ว ขณะนี้</h1><br>
+    <h1>Source Code => <a href="https://github.com/sape-o/webBorrowAsset">GitHub</a></h1><br>
+
 </div>
 
 
@@ -322,9 +318,7 @@ if($index_check!='nologin') {
 <footer class="footer" style="bottom: 0;left: 0;right: 0;width: 100%;padding: 1.5rem;background: #D3D3D3;position: sticky;">
   <div class="content has-text-centered">
     <p>
-      <strong>&copy; Copyright 2019</strong> The source code is licensed
-      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-      is licensed.
+      <strong>&copy; Copyright 2019</strong>&nbsp;&nbsp;<strong>Create By : <a href="<?php echo $host."developer.php"?>">developer</a></strong><br>  โปรแกรม ยืมคืน ครุภัณฑ์ V1.0.0  Source Code => <a href="https://github.com/sape-o/webBorrowAsset">GitHub</a>
     </p>
   </div>
 </footer>

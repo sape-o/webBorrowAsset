@@ -19,7 +19,7 @@ include("views/addition/head.php");
         </div>
         <div class="tile is-parent">
           <div class="tile is-child">
-            <strong>Facebook : </strong> <a href="https://facebook.com/patipan.winthachai"> facebook.com/patipan.winthachai</a>
+            <strong>Facebook : </strong> <a href="https://facebook.com/patipan.winthachai"> facebook.com/patipan.winthachai</a><br>
             <strong>Twitter : </strong> <a href="https://twitter.com/Oreo_sapeO"> twitter.com/Oreo_sapeO</a><br>
             <strong>Expert Front :</strong> React , React native<br>
             <strong>Expert Back :</strong> PHP , MySQL , NodeJS
@@ -33,17 +33,17 @@ include("views/addition/head.php");
   <div class="card" style="width:60%">
     <header class="card-header">
       <p class="card-header-title">
-        Back End
+      Front End
       </p>
 
     </header>
     <div class="card-content">
       <div class="tile is-ancestor">
         <div class="tile is-parent">
-          <img src="public/picture/dev1.png" style="height:200px;,width:200px">
+          <img src="public/picture/dev2.png" style="height:200px;,width:200px">
         </div>
         <div class="tile is-parent">
-          ผมเป็นเด็กดีนะครับผมเป็นเด็กดีนะครับผมเป็นเด็กดีนะครับผมเป็นเด็กดีนะครับผมเป็นเด็กดีนะครับผมเป็นเด็กดีนะครับผมเป็นเด็กดีนะครับ
+
         </div>
       </div>
 
