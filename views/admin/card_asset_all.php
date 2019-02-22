@@ -55,10 +55,10 @@
                     else
                       echo '<td style="color:blue;">'.$asset->status.'</td>';
                       if($asset->status=='ใช้งานได้')
-                        echo '<td><button class="button is-danger" onclick="send('.$asset->asset_id.')" id="change">ใช้งานไม่ได้</button></td>';
+                        echo '<td><button class="button is-danger" style="width:100px" onclick="send('.$asset->asset_id.')" id="change">ใช้งานไม่ได้</button></td>';
                       else
-                        echo '<td><button class="button is-info" onclick="send('.$asset->asset_id.')" id="change">ใช้งานได้</button></td>';
-                        echo '<td><button class="button is-warning" disable><i class="far fa-edit"></i>Edit</button></td>';
+                        echo '<td><button class="button is-info" style="width:100px" onclick="send('.$asset->asset_id.')" id="change">ใช้งานได้</button></td>';
+                        echo '<td><button class="button is-warning" style="width:60px" disabled><i class="far fa-edit"></i>Edit</button></td>';
                         echo '</tr>';
                   }
 
