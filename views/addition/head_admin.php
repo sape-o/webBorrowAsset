@@ -38,8 +38,7 @@
      <script src="public/javascript/check_add_asset.js"></script>
      <script src="public/javascript/change_asset_status.js"></script>
      <script src="public/javascript/change_transection.js"></script>
-
-
+     <script src="public/javascript/admin_select_add_asset.js"></script>
 
 
      <!--  Bulma CSS

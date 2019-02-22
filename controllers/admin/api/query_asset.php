@@ -28,7 +28,18 @@ if(isset($_SESSION['user_type']) and $_SESSION['user_type']==1 and
       $status = query_check_type($_POST['api_type']);
       echo $status;
       exit();
+  }else if(isset($_POST['generation_select']) AND trim(isset($_POST['generation_select']))!='' ) {
+      include("../../database/admin/api/query/query_all_table.php");
+      $status = query_generation_all_admin($_POST['generation_select']);
+      echo $status;
+      exit();
+  }else if(isset($_POST['nature_select']) AND trim(isset($_POST['nature_select']))!='' ) {
+      include("../../database/admin/api/query/query_all_table.php");
+      $status = query_nature_all_admin($_POST['nature_select']);
+      echo $status;
+      exit();
   }
+
 
 }else{
   header("HTTP/1.0 404 Not Found");

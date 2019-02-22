@@ -120,9 +120,8 @@ function insert_nature_admin($type_id,$nature_name) {
   }
 }
 // admin insert asset
-function insert_asset_admin($serial,$keeper,$status,$sn,$location,$comment,
-                            $acquired_date,$purchase_price,$generation_id,
-                            $nature_id) {
+function insert_asset_admin($serial,$keeper,$generation,$nature,$sn,$location,
+                            $date,$status) {
   global $db_ip,$db_user,$db_pwd,$dbname,$handle;
   $handle=new mysqli($db_ip, $db_user, $db_pwd,$dbname);
   $handle->set_charset('utf8');
@@ -133,13 +132,19 @@ function insert_asset_admin($serial,$keeper,$status,$sn,$location,$comment,
     $keeper = trim($keeper);
     $status = trim($status);
     $sn = trim($sn);
-    $purchase_price = trim($purchase_price);
-    $generation_id = trim($generation_id);
-    $nature_id = trim($nature_id);
+    $generation_id = trim($generation);
+    $nature_id = trim($nature);
 
-    $insert_asset = "INSERT INTO asset (serial,keeper,status,sn,location,comment,acquired_date,purchase_price,generation_id,nature_id)
-    VALUES ('$serial','$keeper','$status','$sn','$location','$comment',
-            '$acquired_date','$purchase_price','$generation_id','$nature_id')";
+    $insert_asset = "INSERT INTO asset (serial,
+                                        keeper,
+                                        status,
+                                        sn,
+                                        location,
+                                        acquired_date,
+                                        generation_id,
+                                        nature_id)
+    VALUES ('$serial','$keeper','$status','$sn','$location',
+            '$date','$generation_id','$nature_id')";
 
     if ($handle->query($insert_asset) === FALSE){
       echo "Error: " . $insert_asset . "<br>" . $handle->error;

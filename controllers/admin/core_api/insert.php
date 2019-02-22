@@ -23,25 +23,21 @@ include("controllers/database/admin/core/insert/addasset.php");
 
 if(isset($_POST['serial'])        AND trim($_POST['serial'])!='' AND
   isset($_POST['keeper'])         AND trim($_POST['keeper'])!='' AND
-  isset($_POST['status'])         AND trim($_POST['status'])!='' AND
+  isset($_POST['generation'])     AND trim($_POST['generation'])!='' AND
+  isset($_POST['nature'])         AND trim($_POST['nature'])!='' AND
   isset($_POST['sn'])             AND trim($_POST['sn'])!='' AND
   isset($_POST['location'])       AND trim($_POST['location'])!='' AND
-  isset($_POST['comment'])        AND trim($_POST['comment'])!='' AND
-  isset($_POST['acquired_date'])  AND trim($_POST['acquired_date'])!='' AND
-  isset($_POST['purchase_price']) AND trim($_POST['purchase_price'])!='' AND
-  isset($_POST['generation_id'])  AND trim($_POST['generation_id'])!='' AND
-  isset($_POST['nature_id'])      AND trim($_POST['nature_id'])!=''
+  isset($_POST['date'])           AND trim($_POST['date'])!='' AND
+  isset($_POST['status'])      AND trim($_POST['status'])!=''
   ) {
     $status = insert_asset_admin($_POST['serial'],
                                 $_POST['keeper'],
-                                $_POST['status'],
+                                $_POST['generation'],
+                                $_POST['nature'],
                                 $_POST['sn'],
                                 $_POST['location'],
-                                $_POST['comment'],
-                                $_POST['acquired_date'],
-                                $_POST['purchase_price'],
-                                $_POST['generation_id'],
-                                $_POST['nature_id']
+                                $_POST['date'],
+                                $_POST['status']
                             );
     if($status!="finish") {
           include("views/error/error_in.php");
