@@ -20,8 +20,9 @@ if($index_check!='nologin') {
 }
 ?>
 
+
 <!-- login -->
-  <div id="login" class="modal">
+<div id="login" class="modal">
   <div class="modal-background"></div>
 
       <div class="container">
@@ -42,7 +43,7 @@ if($index_check!='nologin') {
             </form>
           </section>
           <footer class="modal-card-foot">
-            <button id="submit_login" class="button is-info is-outlined">submit</button>
+            <button id="submit_login" class="button is-info is-outlined">Sign In</button>
             <button  class="button is-danger "  type="button"
             onclick="document.getElementById('login').style.display='none'"
                   >Cancel</button>

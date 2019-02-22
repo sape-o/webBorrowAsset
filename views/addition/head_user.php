@@ -19,7 +19,7 @@
   }
 
 ?>
- <html>
+ <html style="background: #F3F2F2;">
    <head>
      <title><?php echo $_SESSION["firstname"]." ".$_SESSION["lastname"] ?></title>
       <meta charset="UTF-8">

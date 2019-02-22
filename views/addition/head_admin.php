@@ -19,7 +19,7 @@
   }
 
 ?>
- <html>
+ <html style="background: #F3F2F2;">
    <head>
      <title> <?php echo "Admin: ".$_SESSION['firstname']  ?> </title>
       <meta charset="UTF-8">
@@ -91,4 +91,4 @@
 
      </script>
    </head>
- <body style="background: #F3F2F2;">
+ <body>
