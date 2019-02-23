@@ -37,7 +37,7 @@ function query_asset_all_user() {
                            INNER JOIN generation ON asset.generation_id=generation.generation_id
                            INNER JOIN brand ON generation.brand_id=brand.brand_id
                            INNER JOIN nature ON asset.nature_id=nature.nature_id
-                           INNER JOIN type ON nature.nature_id=type.type_id
+                           INNER JOIN type ON nature.type_id=type.type_id
                            WHERE asset.status='ใช้งานได้' ";
 
     if($result = $handle->query($query_asset)) {
@@ -104,8 +104,8 @@ function query_book_user() {
                           JOIN asset ON asset.asset_id=transections.asset_id
                           JOIN nature ON nature.nature_id=asset.nature_id
                           JOIN generation ON generation.generation_id=asset.generation_id
-                          JOIN type ON type.type_id=nature.nature_id
-                          JOIN brand ON brand.brand_id=generation.generation_id
+                          JOIN type ON type.type_id=nature.type_id
+                          JOIN brand ON brand.brand_id=generation.brand_id
                           WHERE transections.transection_status='จอง' AND user.user_id='$id'";
 
     if($result = $handle->query($query_book)) {
@@ -146,8 +146,8 @@ function query_borrowing_user() { //กำลังยืม
                           JOIN asset ON asset.asset_id=transections.asset_id
                           JOIN nature ON nature.nature_id=asset.nature_id
                           JOIN generation ON generation.generation_id=asset.generation_id
-                          JOIN type ON type.type_id=nature.nature_id
-                          JOIN brand ON brand.brand_id=generation.generation_id
+                          JOIN type ON type.type_id=nature.type_id
+                          JOIN brand ON brand.brand_id=generation.brand_id
                           WHERE transections.transection_status='ยืม' AND user.user_id='$id'";
     if($result = $handle->query($query_borrowing)) {
       //echo "Database is connect<br>";
@@ -184,8 +184,8 @@ function query_history_user() { //ประวัติการยืม
                           JOIN asset ON asset.asset_id=transections.asset_id
                           JOIN nature ON nature.nature_id=asset.nature_id
                           JOIN generation ON generation.generation_id=asset.generation_id
-                          JOIN type ON type.type_id=nature.nature_id
-                          JOIN brand ON brand.brand_id=generation.generation_id
+                          JOIN type ON type.type_id=nature.type_id
+                          JOIN brand ON brand.brand_id=generation.brand_id
                           WHERE transections.transection_status='คืน' AND user.user_id='$id'";
     if($result = $handle->query($query_history_all)) {
       //echo "Database is connect<br>";
