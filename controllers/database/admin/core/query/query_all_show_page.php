@@ -38,7 +38,7 @@ function query_asset_all_admin() {
                   INNER JOIN generation ON asset.generation_id=generation.generation_id
                   INNER JOIN brand ON generation.brand_id=brand.brand_id
                   INNER JOIN nature ON asset.nature_id=nature.nature_id
-                  INNER JOIN type ON nature.nature_id=type.type_id";
+                  INNER JOIN type ON nature.type_id=type.type_id";
 
     if($result = $handle->query($query_asset)) {
       //echo "Database is connect<br>";
@@ -75,7 +75,7 @@ function query_book_all_admin() { // กำลังจอง
                           JOIN nature ON nature.nature_id=asset.nature_id
                           JOIN generation ON generation.generation_id=asset.generation_id
                           JOIN type ON type.type_id=nature.nature_id
-                          JOIN brand ON brand.brand_id=generation.generation_id
+                          JOIN brand ON brand.brand_id=generation.brand_id
                           WHERE transections.transection_status='จอง'";
     if($result = $handle->query($query_book)) {
       //echo "Database is connect<br>";
@@ -113,7 +113,7 @@ function query_borrowing_admin() { //กำลังยืม
                           JOIN nature ON nature.nature_id=asset.nature_id
                           JOIN generation ON generation.generation_id=asset.generation_id
                           JOIN type ON type.type_id=nature.nature_id
-                          JOIN brand ON brand.brand_id=generation.generation_id
+                          JOIN brand ON brand.brand_id=generation.brand_id
                           WHERE transections.transection_status='ยืม'";
     if($result = $handle->query($query_borrowing)) {
       //echo "Database is connect<br>";
@@ -151,7 +151,7 @@ function query_history_all_admin() { //ประวัติการยืม
                           JOIN nature ON nature.nature_id=asset.nature_id
                           JOIN generation ON generation.generation_id=asset.generation_id
                           JOIN type ON type.type_id=nature.nature_id
-                          JOIN brand ON brand.brand_id=generation.generation_id
+                          JOIN brand ON brand.brand_id=generation.brand_id
                           WHERE transections.transection_status='คืน'";
     if($result = $handle->query($query_history_all)) {
       //echo "Database is connect<br>";
