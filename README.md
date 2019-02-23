@@ -25,3 +25,8 @@ website for borrow equipment in F11 3rd floor
 ## Set PATH
   if you have sub of directory you should set in pathfile.php
   such as my sub in directory "b5813872"  I will set $host=$host.'/b5813872/';
+# Version
+V1.0.1
+   Fix error #1 ในการ query ของ user and  addmin
+V1.0.0  
+   พร้อมใช้งานครั้งแรก
