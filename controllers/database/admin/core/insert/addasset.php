@@ -33,7 +33,7 @@
   }
 
 
-  include("controllers/database/core_db_pass.php");
+  include("controllers/database/config/core_db_pass.php");
 
  // admin insert brand in add asset page
 function insert_brand_asset_admin($brand) {

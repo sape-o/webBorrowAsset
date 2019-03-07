@@ -12,7 +12,7 @@
 
  // เข้าลิ้งนี้โดยตรง โดยที่ไม่ได้ POST อะไรมาเลยจะเข้าไม่ได้ ยกเว้นใช้ postman postเขามา
  // หรือ ถ้าไม่มีไฟล์ core_db_pass.php มันก็จะไม่ทำงาน
-if(!file_exists("../../database/core_db_pass.php") ){
+if(!file_exists("../../database/config/core_db_pass.php") ){
   header("HTTP/1.0 404 Not Found");
   echo '
   <html><head>
@@ -27,7 +27,7 @@ if(!file_exists("../../database/core_db_pass.php") ){
   ';
   exit();
 }
-include("../../database/core_db_pass.php");
+include("../../database/config/core_db_pass.php");
 function query_check_brand($brand) {
     global $db_ip,$db_user,$db_pwd,$dbname,$handle;
     $handle=new mysqli($db_ip, $db_user, $db_pwd,$dbname);

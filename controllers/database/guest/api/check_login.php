@@ -1,5 +1,5 @@
 <?php
-if(!file_exists("../../database/core_db_pass.php") ) {
+if(!file_exists("../../database/config/core_db_pass.php") ) {
   header("HTTP/1.0 404 Not Found");
   echo '
   <html><head>
@@ -14,7 +14,7 @@ if(!file_exists("../../database/core_db_pass.php") ) {
   ';
   exit();
 }
-include("../../database/core_db_pass.php");
+include("../../database/config/core_db_pass.php");
 
 
 // for find username password when login

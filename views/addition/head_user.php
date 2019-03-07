@@ -24,19 +24,18 @@
      <title><?php echo $_SESSION["firstname"]." ".$_SESSION["lastname"] ?></title>
       <meta charset="UTF-8">
       <meta name="keywords" content="ศูนย์เครื่องมือ,f11,sut,SUT,มทส,มหาวิทยาลัยเทคโนโลยีสุรนารี">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <script src="public/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-     <script src="public/jq/jquery-1.10.2.js"></script>
-     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-     <link rel="stylesheet" href="public/css/card_asset_all.css">
-     <link rel="stylesheet" href="public/css/login.css">
-     <link rel="stylesheet" href="public/css/bulma/css/bulma.css">
-     <link rel="stylesheet" href="public/css/bulma/css/bulma.min.css">
-     <link rel="stylesheet" href="public/css/bulma/css/bulma.css.map">
-     <link rel="stylesheet" href="public/css/bulma/css/bulma-checkradio.min.css">
-     <link rel="stylesheet" href="public/css/bulma/css/bulma-badge.min.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+      <link rel="stylesheet" href="public/css/card_asset_all.css">
+      <link rel="stylesheet" href="public/css/login.css">
+      <link rel="stylesheet" href="public/css/bulma/css/bulma.css">
+      <link rel="stylesheet" href="public/css/bulma/css/bulma.min.css">
+      <link rel="stylesheet" href="public/css/bulma/css/bulma.css.map">
+      <link rel="stylesheet" href="public/css/bulma/css/bulma-checkradio.min.css">
+      <link rel="stylesheet" href="public/css/bulma/css/bulma-badge.min.css">
 
-     <script src="public/javascript/user.js"></script>
+      <script src="public/javascript/user.js"></script>
 
      <!--  Bulma CSS
 

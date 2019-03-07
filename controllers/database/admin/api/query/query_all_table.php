@@ -4,7 +4,7 @@
  *
  */
 
- if(!file_exists("../../database/core_db_pass.php") ){
+ if(!file_exists("../../database/config/core_db_pass.php") ){
     header("HTTP/1.0 404 Not Found");
     echo '
     <html><head>
@@ -20,7 +20,7 @@
     exit();
   }
 
-include("../../database/core_db_pass.php");
+include("../../database/config/core_db_pass.php");
 
 // function select, return json ( brand_id ,brand_name)
 function query_brand_all_admin() {

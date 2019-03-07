@@ -23,27 +23,28 @@
     <head>
       <title>ศูนย์เครื่องมือ F11 ชั้น 3</title>
       <meta charset="UTF-8">
+
       <meta name="keywords" content="ศูนย์เครื่องมือ,f11,sut,SUT,มทส,มหาวิทยาลัยเทคโนโลยีสุรนารี">
       <meta property="og:title" content="ศูนย์เครื่องมือ11 ชั้น3 ">
       <meta property="og:description" content="บริการยืมอุปกรณ์ เครื่องมือเฉพาะทาง">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script src="public/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="public/jq/jquery-1.10.2.js"></script>
-      <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-      <link rel="stylesheet" href="public/css/card_asset_all.css">
-      <link rel="stylesheet" href="public/css/login.css">
-      <link rel="stylesheet" href="public/css/bulma/css/bulma.css">
-      <link rel="stylesheet" href="public/css/bulma/css/bulma.min.css">
-      <link rel="stylesheet" href="public/css/bulma/css/bulma.css.map">
-      <link rel="stylesheet" href="public/css/bulma/css/bulma-checkradio.min.css">
-      <link rel="stylesheet" href="public/css/bulma/css/bulma-carousel.min.css">
-     
 
-      <script src="public/javascript/formvalidregis.js"></script>
-      <script src="public/javascript/formvalidlogin.js"></script>
+      <link  rel="stylesheet" href="public/css/card_asset_all.css" as="style">
+      <link  rel="stylesheet" href="public/css/login.css" as="style">
+      <link  rel="stylesheet" href="public/css/bulma/css/bulma.css" as="style">
+      <link  rel="stylesheet" href="public/css/bulma/css/bulma.min.css" as="style">
+      <link  rel="stylesheet" href="public/css/bulma/css/bulma.css.map" as="style">
+      <link  rel="stylesheet" href="public/css/bulma/css/bulma-checkradio.min.css" as="style">
+      <link  rel="stylesheet" href="public/css/bulma/css/bulma-carousel.min.css" as="style">
+
+      <script   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script   src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+      <script  rel="preload" as="script" type="text/javascript" src="public/javascript/formvalidregis.js"></script>
+      <script  rel="preload" as="script" type="text/javascript" src="public/javascript/formvalidlogin.js"></script>
 
       <!-- https://wikiki.github.io/components/carousel/ -->
-      <script type="text/javascript" src="public/javascript/bulma-carousel.min.js"></script>
+      <script  rel="preload" as="script" type="text/javascript" src="public/javascript/bulma-carousel.min.js"></script>
       <script>
         $(document).ready(function(){
               var carousels = bulmaCarousel.attach(); // carousels now contains an array of all Carousel instances

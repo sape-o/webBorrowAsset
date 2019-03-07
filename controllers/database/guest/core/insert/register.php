@@ -6,7 +6,7 @@
    * ถ้าเกิดว่า เช็กอีกรอบแล้ว มันไม่มีอยู่ในระบบ มันจะไม่ set session ให้ ถ้ามี ก็จะ set session ให้ แล้วทำการเด้งไปหน้า user
    */
 
-if(!file_exists("controllers/database/core_db_pass.php") || $index_check!='regis'){
+if(!file_exists("controllers/database/config/core_db_pass.php") || $index_check!='regis'){
   header("HTTP/1.0 404 Not Found");
   echo '
   <html><head>
@@ -22,7 +22,7 @@ if(!file_exists("controllers/database/core_db_pass.php") || $index_check!='regis
   exit();
 }
 
-include("controllers/database/core_db_pass.php");
+include("controllers/database/config/core_db_pass.php");
 
 function register($firstname,$lastname,$age,$gender,$username,$password,$email,$tel,$status,$token){ // function return
   global $db_ip,$db_user,$db_pwd,$dbname,$handle;

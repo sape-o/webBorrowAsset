@@ -20,7 +20,7 @@
     exit();
   }
 
-include("controllers/database/core_db_pass.php");
+include("controllers/database/config/core_db_pass.php");
 
 // function select, return json ( brand_id ,brand_name)
 function query_brand_all_admin() {

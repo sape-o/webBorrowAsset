@@ -1,6 +1,6 @@
 <?php
 
-if(!file_exists("controllers/database/core_db_pass.php") || $index_check!='user_type2'){
+if(!file_exists("controllers/database/config/core_db_pass.php") || $index_check!='user_type2'){
   header("HTTP/1.0 404 Not Found");
   echo '
   <html><head>

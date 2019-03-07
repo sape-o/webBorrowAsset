@@ -4,7 +4,7 @@
  * จะสามารถ รันไฟล นี้ได้ก็ต่อเมื่อ เข้าผ่าน index.php และ และ index.php เรียกใช้ไฟล นี้เท่านั้น
  */
 
-  if(!file_exists("controllers/database/core_db_pass.php") || $index_check!='user_type2'){
+  if(!file_exists("controllers/database/config/core_db_pass.php") || $index_check!='user_type2'){
     header("HTTP/1.0 404 Not Found");
     echo '
     <html><head>
@@ -20,7 +20,7 @@
     exit();
   }
 
-  include("controllers/database/core_db_pass.php");
+  include("controllers/database/config/core_db_pass.php");
 // query all asset ที่ ใช้งานได้ และไม่มีคนกำลังจอง
 function query_book_temp_user($id) {
   global $db_ip,$db_user,$db_pwd,$dbname,$handle;

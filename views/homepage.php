@@ -302,7 +302,9 @@ if($index_check!='nologin') {
 <div class="working">
 
   <br>
+    <h1>โปรแกรม ยืมคืน ครุภัณฑ์ V1.0.1 แก้ใข Bug</h1><br>
     <h1>โปรแกรม ยืมคืน ครุภัณฑ์ V1.0.0 สามารถใช้งานได้แล้ว ขณะนี้</h1><br>
+
     <h1>Source Code => <a href="https://github.com/sape-o/webBorrowAsset">GitHub</a></h1><br>
 
 </div>

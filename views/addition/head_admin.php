@@ -25,8 +25,7 @@
       <meta charset="UTF-8">
       <meta name="keywords" content="ศูนย์เครื่องมือ,f11,sut,SUT,มทส,มหาวิทยาลัยเทคโนโลยีสุรนารี">
      <meta name="viewport" content="width=device-width, initial-scale=1">
-     <script src="public/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-     <script src="public/jq/jquery-1.10.2.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
      <link rel="stylesheet" href="public/css/card_asset_all.css">
      <link rel="stylesheet" href="public/css/login.css">

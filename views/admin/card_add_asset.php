@@ -211,48 +211,6 @@ include("controllers/database/admin/core/query/query_all_table.php");
 
 
 
-<!-- <section class="section" style="background: #F3F2F2;">
-  <div class="container">
-    <div class="field is-fullwidth">
-      <label class="label">รหัสครุภัณฑ์</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Asset ID.">
-      </div>
-    </div>
-    <div class="field">
-      <div class="control">
-        <input class="input" type="text" placeholder="Info input">
-      </div>
-    </div>
-    <div class="field">
-      <div class="control">
-        <input class="input" type="text" placeholder="Success input">
-      </div>
-    </div>
-    <div class="field">
-      <div class="control">
-        <input class="input" type="text" placeholder="Warning input">
-      </div>
-    </div>
-    <div class="field">
-      <div class="control">
-        <input class="input" type="text" placeholder="Danger input">
-      </div>
-    </div>
-  </div>
-</section>
 
 
-
- -->
-
-
-
-
-
-
-
-       <?php
-
-       ?>
  <!-- //card  เพิ่ม-->
