@@ -56,7 +56,7 @@ function query_asset_all_user() { //ไม่ได้ใช้แล้ว ไ�
   }
 
 }
-function query_asset_transection_user($asset_id) {
+function query_asset_transection_user($asset_id) { //ไม่ได้ใช้แล้ว ไช้ใน get_asset.php แทน
   global $db_ip,$db_user,$db_pwd,$dbname,$handle;
   $handle=new mysqli($db_ip, $db_user, $db_pwd,$dbname);
   $handle->set_charset('utf8');
@@ -106,7 +106,8 @@ function query_book_user() {
                           JOIN generation ON generation.generation_id=asset.generation_id
                           JOIN type ON type.type_id=nature.type_id
                           JOIN brand ON brand.brand_id=generation.brand_id
-                          WHERE transections.transection_status='จอง' AND user.user_id='$id'";
+                          WHERE transections.transection_status='จอง' AND user.user_id='$id'
+                          ORDER BY borrow_id ASC ";
 
     if($result = $handle->query($query_book)) {
       while($row = $result->fetch_assoc()) {
@@ -148,7 +149,8 @@ function query_borrowing_user() { //กำลังยืม
                           JOIN generation ON generation.generation_id=asset.generation_id
                           JOIN type ON type.type_id=nature.type_id
                           JOIN brand ON brand.brand_id=generation.brand_id
-                          WHERE transections.transection_status='ยืม' AND user.user_id='$id'";
+                          WHERE transections.transection_status='ยืม' AND user.user_id='$id'
+                          ORDER BY borrow_id ASC ";
     if($result = $handle->query($query_borrowing)) {
       //echo "Database is connect<br>";
       while($row = $result->fetch_assoc()) {
@@ -186,7 +188,8 @@ function query_history_user() { //ประวัติการยืม
                           JOIN generation ON generation.generation_id=asset.generation_id
                           JOIN type ON type.type_id=nature.type_id
                           JOIN brand ON brand.brand_id=generation.brand_id
-                          WHERE transections.transection_status='คืน' AND user.user_id='$id'";
+                          WHERE transections.transection_status='คืน' AND user.user_id='$id'
+                          ORDER BY borrow_id ASC ";
     if($result = $handle->query($query_history_all)) {
       //echo "Database is connect<br>";
       while($row = $result->fetch_assoc()) {

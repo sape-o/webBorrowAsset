@@ -76,7 +76,8 @@ function query_book_all_admin() { // กำลังจอง
                           JOIN generation ON generation.generation_id=asset.generation_id
                           JOIN type ON type.type_id=nature.nature_id
                           JOIN brand ON brand.brand_id=generation.brand_id
-                          WHERE transections.transection_status='จอง'";
+                          WHERE transections.transection_status='จอง'
+                          ORDER BY borrow_id ASC ";
     if($result = $handle->query($query_book)) {
       //echo "Database is connect<br>";
       while($row = $result->fetch_assoc()) {
@@ -114,7 +115,8 @@ function query_borrowing_admin() { //กำลังยืม
                           JOIN generation ON generation.generation_id=asset.generation_id
                           JOIN type ON type.type_id=nature.nature_id
                           JOIN brand ON brand.brand_id=generation.brand_id
-                          WHERE transections.transection_status='ยืม'";
+                          WHERE transections.transection_status='ยืม'
+                          ORDER BY borrow_id ASC ";
     if($result = $handle->query($query_borrowing)) {
       //echo "Database is connect<br>";
       while($row = $result->fetch_assoc()) {
@@ -152,7 +154,8 @@ function query_history_all_admin() { //ประวัติการยืม
                           JOIN generation ON generation.generation_id=asset.generation_id
                           JOIN type ON type.type_id=nature.nature_id
                           JOIN brand ON brand.brand_id=generation.brand_id
-                          WHERE transections.transection_status='คืน'";
+                          WHERE transections.transection_status='คืน'
+                          ORDER BY borrow_id ASC ";
     if($result = $handle->query($query_history_all)) {
       //echo "Database is connect<br>";
       while($row = $result->fetch_assoc()) {
