@@ -66,7 +66,7 @@ function query_book_all_admin() { // กำลังจอง
                           borrow.borrow_id,
                           user.user_id,user.firstname,user.lastname,user.tel,user.department,user.status,
                           user.email,
-                          asset.asset_id,asset.serial,asset.sn,asset.purchase_price,
+                          asset.asset_id,asset.serial,asset.sn,asset.purchase_price,asset.location,
                           type.type_name,nature.nature_name,brand.brand_name,generation.generation_name
                           FROM transections
                           JOIN borrow ON borrow.borrow_id=transections.borrow_id
@@ -104,7 +104,7 @@ function query_borrowing_admin() { //กำลังยืม
                           borrow.borrow_id,
                           user.user_id,user.firstname,user.lastname,user.tel,user.department,user.status,
                           user.email,
-                          asset.asset_id,asset.serial,asset.sn,asset.purchase_price,
+                          asset.asset_id,asset.serial,asset.sn,asset.purchase_price,asset.location,
                           type.type_name,nature.nature_name,brand.brand_name,generation.generation_name
                           FROM transections
                           JOIN borrow ON borrow.borrow_id=transections.borrow_id
@@ -142,7 +142,7 @@ function query_history_all_admin() { //ประวัติการยืม
                           borrow.borrow_id,
                           user.user_id,user.firstname,user.lastname,user.tel,user.department,user.status,
                           user.email,
-                          asset.asset_id,asset.serial,asset.sn,asset.purchase_price,
+                          asset.asset_id,asset.serial,asset.sn,asset.purchase_price,asset.location,
                           type.type_name,nature.nature_name,brand.brand_name,generation.generation_name
                           FROM transections
                           JOIN borrow ON borrow.borrow_id=transections.borrow_id

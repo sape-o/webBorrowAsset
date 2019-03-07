@@ -17,68 +17,96 @@
 
 
 ?>
+<script>
+var datacheck;
+var datacheck2;
 
-<!-- cardloop ค้นหาทั้งหมด-->
-<div class="box" style="margin:20px;">
-  <div class="card-content">
-    <div class="content">
-      <?php
-        include("controllers/database/user/core/query/query_all_show_page.php");
-        $asset_all = query_asset_all_user();
-        $asset_all = json_decode($asset_all);
-        //เอามาคิวรี แสดงผลข้อมูล
-        if($asset_all>0){ // ถ้ามีข้อมูลใน DB ให้ แสดงออกมา
-          echo'
-          <table boder=1 class="table is-striped">
-            <thead>
-              <tr>
-                <th>ที่</th>
-                <th>รหัสครุภัณฑ์</th>
-                <th>ชนิด</th>
-                <th>ลักษณะ</th>
-                <th>ยี่ห้อ</th>
-                <th>รุ่น</th>
-                <th>s/n</th>
-                <th>สถานะ</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>';
-                foreach($asset_all as $key=>$asset_all){
-                  echo '<tr>';
-                    echo '<td>'.($key+1).'</td>';
-                    echo '<td>'.$asset_all->serial.'</td>';
-                    echo '<td>'.$asset_all->type_name.'</td>';
-                    echo '<td>'.$asset_all->nature_name.'</td>';
-                    echo '<td>'.$asset_all->brand_name.'</td>';
-                    echo '<td>'.$asset_all->generation_name.'</td>';
-                    echo '<td>'.$asset_all->sn.'</td>';
-                    if($asset_all->status=="ใช้งานไม่ได้"){
-                      echo '<td style="color:red;">'.$asset_all->status.'</td>';
-                    }else{
-                      echo '<td style="color:blue;">'.$asset_all->status.'</td>';
-                    }
-                      $result_ass_tran = query_asset_transection_user($asset_all->asset_id);
-                      if($result_ass_tran=='false'){
-                        echo '<td><button class="button is-danger" style="width:80%;" disabled>ถูกยืมแล้ว</button></td>';
-                      }else{
-                        echo '<td><button class="button is-info" style="width:80%" onclick="book_temp('.$asset_all->asset_id.')" id="change">จอง</button></td>';
-                      }
-                  echo '</tr>';
-                }
-          echo '<tr></tr>';
-          echo '</tbody>
-                </table>';
-        }else {
-          echo '<br><br>
-          <div class="notification is-link">
-            <center><h1><strong>ไม่มีรายการครุภัณฑ์ในขณะนี้</strong></h1></center>
-          </div>';
+getData();
+setInterval(getData,1000);
+
+function getData() {
+   var xhttp;
+   xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = function() {
+     if (this.readyState == 4 && this.status == 200) {
+       datacheck = this.responseText;
+       if(datacheck != datacheck2){
+         createTable(this.responseText);
+         datacheck2 = datacheck;
+       }
+
+     }
+   };
+   xhttp.open("GET", "controllers/user/api/get_asset.php?q=query", true);
+   xhttp.send();
+}
+
+function createTable(data1) {
+  //alert(data1);
+  var data=JSON.parse(data1);
+   var eTable='\
+   <table boder=1 class="table is-striped">\
+      <thead>\
+        <tr>\
+          <th>ที่</th>\
+          <th>รหัสครุภัณฑ์</th>\
+          <th>ชนิด</th>\
+          <th>ลักษณะ</th>\
+          <th>ยี่ห้อ</th>\
+          <th>รุ่น</th>\
+          <th>s/n</th>\
+          <th>สถานะ</th>\
+          <th></th>\
+        </tr>\
+      </thead>\
+      <tbody>';
+
+
+  for(var i in data) {
+
+      eTable+= '<tr>';
+      eTable+= '<td>'+(i+1)+'</td>';
+      eTable+= '<td>'+data[i].serial+'</td>';
+      eTable+= '<td>'+data[i].type_name+'</td>';
+      eTable+= '<td>'+data[i].nature_name+'</td>';
+      eTable+= '<td>'+data[i].brand_name+'</td>';
+      eTable+= '<td>'+data[i].generation_name+'</td>';
+      eTable+= '<td>'+data[i].sn+'</td>';
+
+      if(data[i].status=="ใช้งานไม่ได้"){
+        eTable+= '<td style="color:red;">'+data[i].status+'</td>';
+      }else{
+        eTable+= '<td style="color:blue;">'+data[i].status+'</td>';
+      }
+
+
+        if(data[i].transection_id==1){
+          eTable+= '<td><button class="button is-danger" style="width:80%;" disabled>ถูกยืมแล้ว</button></td>';
+        }else{
+          eTable+= '<td><button class="button is-info" style="width:80%" onclick="book_temp('+data[i].asset_id+')" id="change">จอง</button></td>';
         }
 
 
-      ?>
-      </div>
+
+      eTable+='</tr>';
+
+  }
+
+  eTable += '<tr></tr>';
+  eTable += '</tbody>';
+  eTable +=  '</table>';
+  $('#forTable').html(eTable);
+}
+
+</script>
+<!-- cardloop ค้นหาทั้งหมด-->
+
+<div class="box" style="margin:20px;">
+  <div class="card-content">
+    <div class="content">
+      <div id="forTable"></div>
     </div>
+  </div>
 </div>
+
 <!-- //card loop ค้นหาทั้งหมด-->

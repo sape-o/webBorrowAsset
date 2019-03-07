@@ -22,7 +22,7 @@
 
   include("controllers/database/config/core_db_pass.php");
 // query all asset ที่ ใช้งานได้ และไม่มีคนกำลังจอง
-function query_asset_all_user() {
+function query_asset_all_user() { //ไม่ได้ใช้แล้ว ไปใช้ Get_asset.php แทน
   global $db_ip,$db_user,$db_pwd,$dbname,$handle;
   $handle=new mysqli($db_ip, $db_user, $db_pwd,$dbname);
   $handle->set_charset('utf8');
@@ -96,7 +96,7 @@ function query_book_user() {
                           borrow.borrow_id,
                           user.user_id,user.firstname,user.lastname,user.tel,user.department,user.status,
                           user.email,
-                          asset.asset_id,asset.serial,asset.sn,asset.purchase_price,
+                          asset.asset_id,asset.serial,asset.sn,asset.purchase_price,asset.location,
                           type.type_name,nature.nature_name,brand.brand_name,generation.generation_name
                           FROM transections
                           JOIN borrow ON borrow.borrow_id=transections.borrow_id
@@ -138,7 +138,7 @@ function query_borrowing_user() { //กำลังยืม
                           borrow.borrow_id,
                           user.user_id,user.firstname,user.lastname,user.tel,user.department,user.status,
                           user.email,
-                          asset.asset_id,asset.serial,asset.sn,asset.purchase_price,
+                          asset.asset_id,asset.serial,asset.sn,asset.purchase_price,asset.location,
                           type.type_name,nature.nature_name,brand.brand_name,generation.generation_name
                           FROM transections
                           JOIN borrow ON borrow.borrow_id=transections.borrow_id

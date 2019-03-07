@@ -24,7 +24,7 @@ if(isset($_SESSION['user_type']) and $_SESSION['user_type']==2 and
   <title>404 Not Found</title>
   </head><body>
   <h1>Not Found</h1>
-  <p>The requested URL /b5813872/controllers/admin/admin.php was not found on this server.</p>
+  <p>The requested URL /b5813872/controllers/user/api/delete_book.php was not found on this server.</p>
   <hr>
   <address>Apache/2.2.15 (CentOS) Server at student.sut.ac.th Port 80</address>
   </body></html>
