@@ -40,6 +40,7 @@ if(isset($_SESSION['user_type']) and $_SESSION['user_type']==2 and
     if($result=='finish') {
       echo $result;
       unset($_SESSION['book_temp']);
+      $_SESSION['state_nav']='reserved';//จะให้มันเด้งไปหน้าจองให้ แต่ยังไม่สามารถทำงานได้ เนื่องจาก location.reload() ของ js
     }else {
       echo $result;
     }
