@@ -30,21 +30,49 @@ function insert_book_user() {
     if ($handle->query($sql) === FALSE){
       echo "Error: " . $sql . "<br>" . $handle->error;
     }
-    $sql = "SELECT borrow.borrow_id FROM borrow WHERE borrow.user_id=$v";
+    $max_borrow=0;
+    $sql = "SELECT borrow.borrow_id FROM borrow WHERE borrow.user_id=$v ORDER BY user_id DESC";
     if($result = $handle->query($sql)) {
       while($row = $result->fetch_assoc()) {
         $max_borrow = $row['borrow_id'];
       }
     }
+    $check_point_fail=0;
     for($i=0;$i<sizeof($_SESSION['book_temp']);$i++) {
       $va = $_SESSION['book_temp'][$i];
-      $insert_book = "INSERT INTO transections (asset_id,borrow_id) VALUES ('$va', '$max_borrow')";
-      if ($handle->query($insert_book) === FALSE){
-        echo "Error: " . $insert_brand . "<br>" . $handle->error;
+      $query_check = "SELECT transections.transection_id,transections.transection_status
+                      FROM transections
+                      WHERE asset_id='$va' AND
+                      (transections.transection_status='จอง' OR transections.transection_status='ยืม') ";
+
+      if($result = $handle->query($query_check)) {
+        if($row = $result->fetch_assoc()) {
+          if($row['transection_id']>0){
+            $check_point_fail=$va;
+            return "รายการที่ \"".($i+1)."\" ถูกยืมไปแล้ว กรุณาลบ";
+            exit();
+
+          }else {
+            $check_point_fail=0;
+            continue;
+          }
+        }
       }
     }
-    $handle->close();
-    return "finish";
+
+    if($check_point_fail==0) {
+        for($i=0;$i<sizeof($_SESSION['book_temp']);$i++) {
+          $va = $_SESSION['book_temp'][$i];
+          $insert_book = "INSERT INTO transections (asset_id,borrow_id) VALUES ('$va', '$max_borrow')";
+          if ($handle->query($insert_book) === FALSE){
+            echo "Error: " . $insert_brand . "<br>" . $handle->error;
+          }
+        }
+        $handle->close();
+        return "finish";
+    }
+
   }
+
 }
 ?>

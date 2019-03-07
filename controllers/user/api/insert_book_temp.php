@@ -37,9 +37,12 @@ if(isset($_SESSION['user_type']) and $_SESSION['user_type']==2 and
   }else if(isset($_POST['commit_book_temp']) AND trim(isset($_POST['commit_book_temp']))!='') {
     include("../../database/user/api/insert/insert_book.php");
     $result = insert_book_user();
-    if($result=='finish')
+    if($result=='finish') {
       echo $result;
-    unset($_SESSION['book_temp']);
+      unset($_SESSION['book_temp']);
+    }else {
+      echo $result;
+    }
   }
 
 

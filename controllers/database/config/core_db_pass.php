@@ -1,8 +1,8 @@
 <?php
-$db_ip='localhost';
-$dbname='b5813872';
-$db_user='root';
-$db_pwd='meroot';
+$db_ip='';
+$dbname='';
+$db_user='';
+$db_pwd='';
 $db_port='';
 
 
