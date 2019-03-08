@@ -6,6 +6,7 @@ $(document).ready(function() {
       $("#add_brand").addClass('is-danger');
       $('#add_brand_alert').css('color', 'red');
       $('#add_brand_alert').show().text("*กรุณากรอกชื่อยี่ห้อ*");
+      preventDefault();
     }else{
       $.post("controllers/admin/api/query_asset.php",{api_brand:brand},function(brand_result){
         if(brand_result=="true"){
@@ -16,6 +17,7 @@ $(document).ready(function() {
           $("#add_brand").addClass('is-danger');
           $('#add_brand_alert').css('color', 'red');
           $('#add_brand_alert').show().text("*ชื่อยี่ห้อนี้มีอยู่แล้ว*");
+          preventDefault();
         }
       });
     }
@@ -28,6 +30,7 @@ $(document).ready(function() {
       $("#add_brand").removeClass('is-danger');
       $('#add_brand_alert').css({'color': ''});
       $('#add_brand_alert').hide();
+
     }else{
       $.post("controllers/admin/api/query_asset.php",{api_brand:brand},function(brand_result){
         if(brand_result=="true"){
@@ -51,11 +54,13 @@ $(document).ready(function() {
     if(brand_relect=="NO"){
         $('#add_gen_alert').css('color', 'red');
         $('#add_gen_alert').show().text("*กรุณาเลือกยี่ห้อ*");
+        preventDefault();
     }else{
       if(genneration.length==0){
         $("#add_gen").addClass('is-danger');
         $('#add_gen_alert').css('color', 'red');
         $('#add_gen_alert').show().text("*กรุณากรอกชื่อรุ่น*");
+        preventDefault();
       }else{
         $.post("controllers/admin/api/query_asset.php",{api_brand:brand_relect,api_generation:genneration},function(gen_result){
           if(gen_result=="true"){
@@ -111,6 +116,7 @@ $(document).ready(function() {
       $("#add_type").addClass('is-danger');
       $('#add_type_alert').css('color', 'red');
       $('#add_type_alert').show().text("*กรุณากรอกชนิด*");
+      preventDefault();
     }else{
       $.post("controllers/admin/api/query_asset.php",{api_type:type},function(type_result){
         if(type_result=="true"){
@@ -121,6 +127,7 @@ $(document).ready(function() {
           $("#add_brand").addClass('is-danger');
           $('#add_type_alert').css('color', 'red');
           $('#add_type_alert').show().text("*ชื่อชนิดนี้มีอยู่แล้ว*");
+          preventDefault();
         }
       });
     }
@@ -156,13 +163,13 @@ $(document).ready(function() {
     if(type_relect=="NO"){
         $('#add_nature_alert').css('color', 'red');
         $('#add_nature_alert').show().text("*กรุณาเลือกชนิด*");
-
+        preventDefault();
     }else{
       if(nature.length==0){
         $("#add_nature").addClass('is-danger');
         $('#add_nature_alert').css('color', 'red');
         $('#add_nature_alert').show().text("*กรุณากรอกชื่อรุ่น*");
-
+        preventDefault();
       }else{
         $('#add_nature_alert').css({'color': ''});
         $.post("controllers/admin/api/query_asset.php",{api_type:type_relect,api_nature:nature},function(nature_result){
@@ -176,7 +183,7 @@ $(document).ready(function() {
             $("#add_nature").addClass('is-danger');
             $('#add_nature_alert').css('color', 'red');
             $('#add_nature_alert').show().text("*ชื่อลักษณะนี้มีอยู่แล้ว*");
-
+            preventDefault();
           }
         });
       }

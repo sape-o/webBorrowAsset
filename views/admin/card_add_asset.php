@@ -15,11 +15,178 @@
     exit();
   }
 include("controllers/database/admin/core/query/query_all_table.php");
+
+
+
 ?>
+<script >
+$(document).ready(function() {
+  $("#add_assets").hide();
+  $("#add_bgtn").hide();
+  var sessionValue = '<?php echo $_SESSION['state_asset_tab']?>';
 
+  if(sessionValue=="0") {
+    $("#add_assets").hide();
+    $('#clickShow_add_bgtn').addClass('is-active');
+    $("#add_bgtn").show();
+  }else if(sessionValue=="1") {
+    $("#add_bgtn").hide();
+    $('#clickShow_add_asset').addClass('is-active');
+    $("#add_assets").show();
 
+  }
+  $('#clickShow_add_bgtn').click(function() {
+    $('#clickShow_add_bgtn').addClass('is-active');
+      $("#add_bgtn").show();
+      $("#add_assets").hide();
+      $('#clickShow_add_asset').removeClass('is-active');
+      $.post("<?php echo $host;?>",{sessionTab:'0'});
+  });
+  $('#clickShow_add_asset').click(function() {
+    $('#clickShow_add_asset').addClass('is-active');
+    $("#add_assets").show();
+    $("#add_bgtn").hide();
+    $('#clickShow_add_bgtn').removeClass('is-active');
+    $.post("<?php echo $host;?>",{sessionTab:'1'});
+
+  });
+});
+</script>
+<div class="tabs">
+  <ul>
+    <li id="clickShow_add_bgtn" class=""><a>เพิ่ม ยี่ห้อ,รุ่น,ลักษณะ,ชนิด</a></li>
+    <li id="clickShow_add_asset"class=""><a>เพิ่ม คุรภัณฑ์</a></li>
+  </ul>
+</div>
+<div style="margin:20px;" id="add_bgtn">
+   <div class="tile is-ancestor">
+     <div class="tile is-vertical">
+       <div class="tile">
+         <div class="tile is-parent is-vertical">
+           <article class="tile is-child notification" style="background-color:#e6e6e6">
+            <div class="tile is-ancestor">
+              <div class="tile">
+                <div class="tile is-parent">
+                  <div class="tile is-child">
+                    <label><strong>เพิ่มยี่ห้อ</strong></label>&nbsp;<label id="add_brand_alert" style="color:red;"></label>
+                    <div class="tile" >
+                      <form id="brand_a_ass" method="post" action="<?php echo $host;?>">
+                        <input id="add_brand" class="input is-info" name="brand" style="width:270px;" placeholder="กรอกยี่ห้อ">
+                      </form>
+                    </div>
+                    <div class="tile">
+                      <a id="submit_add_brand" class="button is-info" style="width:270px;">
+                        <span class="icon is-small">
+                          <i class="fas fa-save"></i>
+                        </span>
+                        <span>บันทึก</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="tile is-parent">
+                  <form id="generation_a_ass" method="post" action="<?php echo $host;?>">
+                    <div class="tile is-child">
+                      <label><strong>เพิ่มรุ่น</strong></label>&nbsp;<label id="add_gen_alert" style="color:red;"></label>
+                      <div class="tile">
+                        <div class="field">
+                           <div class="control">
+                             <div class="select is-info" style="width:270px;">
+                               <select id="brand_select_for_gen" name="brand_id" style="width:270px;">
+                                 <option value="NO">เลือกยี่ห้อ</option>
+                                 <?php
+                                   $data = query_brand_all_admin();// call function
+                                   $data = json_decode($data);
+                                   foreach($data as $key=>$data){
+                                     echo "<option value=".$data->brand_id.">".$data->brand_name."</option>";
+                                   }
+                                 ?>
+                               </select>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                      <div class="tile">
+                        <input id="add_gen" name="add_gen" class="input is-info" style="width:270px;" placeholder="กรอกรุ่น">
+                      </div>
+                      <div class="tile">
+                        <a id="submit_add_gen" class=" button is-info" style="width:270px;" >
+                          <span class="icon is-small">
+                            <i class="fas fa-save"></i>
+                          </span>
+                          <span>บันทึก</span>
+                        </a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="tile is-parent">
+                  <div class="tile is-child">
+                    <label><strong>เพิ่มชนิด</strong></label>&nbsp;<label id="add_type_alert" style="color:red;"></label>
+                    <div class="tile is-child">
+                      <div class="tile">
+                        <form id="type_a_ass" method="post" href="<?php echo $host;?>">
+                          <input id="add_type" name="add_type" class="input is-info"  style="width:270px;" placeholder="กรอกชนิด">
+                        </form>
+                      </div>
+                      <div class="tile">
+                        <button id="submit_add_type" class="button is-info" style="width:270px;">
+                          <span class="icon is-small">
+                            <i class="fas fa-save"></i>
+                          </span>
+                          <span>บันทึก</span>
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="tile is-parent">
+                  <div class="tile is-child is-info">
+                    <label><strong>เพิ่มลักษณะ</strong></label>&nbsp;<label id="add_nature_alert" style="color:red;"></label>
+                      <form id="nature_a_ass" method="post" action="<?php echo $host;?>">
+                        <div class="tile">
+                          <div class="field">
+                             <div class="control">
+                               <div class="select is-info" style="width:270px;">
+                                 <select id="type_select_for_nature" name="type_id" style="width:270px;">
+                                   <option value="NO">เลือกชนิด</option>
+                                 <?php
+                                   $data = query_type_all_admin();// call function
+                                   $data = json_decode($data);
+                                   foreach($data as $key=>$data){
+                                     echo "<option value=".$data->type_id.">".$data->type_name."</option>";
+                                   }
+                                 ?>
+                                 </select>
+                               </div>
+                             </div>
+                           </div>
+                        </div>
+                        <div class="tile">
+                          <input id="add_nature" name="add_nature" class="input is-info" style="width:270px;" placeholder="กรอกลักษณะ">
+                        </div>
+                       </form>
+                      <div class="tile">
+                        <button class="button is-info" id="submit_add_nature" style="width:270px;">
+                          <span class="icon is-small">
+                            <i class="fas fa-save"></i>
+                          </span>
+                          <span>บันทึก</span>
+                        </button>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
  <!-- card เพิ่ม-->
-<div style="margin:20px;">
+<div id="add_assets" style="margin:20px;">
    <div class="tile is-ancestor">
      <div class="tile is-vertical">
        <div class="tile">

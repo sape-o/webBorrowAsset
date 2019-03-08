@@ -31,6 +31,7 @@
   }else if($_GET['log']==$_SESSION['username']) {
     $_SESSION['state_nav']="log";
   }
+  
 
   if($_SESSION['state_nav']=="search"){
     include("views/addition/nav_user.php");

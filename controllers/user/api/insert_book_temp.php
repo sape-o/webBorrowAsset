@@ -46,7 +46,6 @@ if(isset($_SESSION['user_type']) and $_SESSION['user_type']==2 and
     }
   }
 
-
 }else{
   header("HTTP/1.0 404 Not Found");
   echo '
@@ -62,8 +61,5 @@ if(isset($_SESSION['user_type']) and $_SESSION['user_type']==2 and
   ';
 
 }
-
-
-
 
  ?>

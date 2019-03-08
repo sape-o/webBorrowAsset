@@ -37,6 +37,15 @@
     $_SESSION['state_nav']="log";
   }
 
+  if(!(isset($_SESSION['state_asset_tab']))){
+    $_SESSION['state_asset_tab']="0";
+  }
+  if(isset($_POST['sessionTab'])) {
+    $_SESSION['state_asset_tab']=$_POST['sessionTab'];
+    echo "IS= ".$_POST['sessionTab'];
+
+  }
+
   if($_SESSION['state_nav']=="add") {
     include("views/addition/nav_admin.php");
     include("views/admin/card_add_asset.php");
